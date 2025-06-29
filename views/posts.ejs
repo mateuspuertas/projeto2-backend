@@ -1,0 +1,19 @@
+<html>
+<head><title>Posts</title></head>
+<body>
+  <h2>Bem-vindo, <%= user.name %>!</h2>
+  <form action="/posts" method="POST">
+    Título: <input name="title" required><br>
+    Conteúdo: <textarea name="content" required></textarea><br>
+    <button type="submit">Publicar</button>
+  </form>
+  <h3>Postagens:</h3>
+  <% posts.forEach(post => { %>
+    <div style="border:1px solid #ccc; margin:10px; padding:10px;">
+      <strong><%= post.title %></strong> - por <%= post.author %><br>
+      <p><%= post.content %></p>
+    </div>
+  <% }) %>
+  <a href="/logout">Sair</a>
+</body>
+</html>
